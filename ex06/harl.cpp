@@ -3,12 +3,17 @@
 Harl::Harl() :
 	_restrict(Debug)
 {
+	std::cout << "Harl created" << std::endl;
+}
 
+Harl::~Harl()
+{
+	std::cout << "Harl destroyed" << std::endl;
 }
 
 typedef void (Harl::*LogFunc)(void);
 
-void Harl::complain(std::string level)
+void Harl::complain(const std::string &level)
 {
 	std::string levels[4] = {
 		"DEBUG", "INFO", "WARNING", "ERROR"
