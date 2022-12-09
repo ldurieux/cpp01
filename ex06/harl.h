@@ -16,6 +16,7 @@ class Harl
 {
 public:
 	Harl();
+	~Harl();
 
 	void complain(std::string level);
 	bool restrict(const std::string &level);

@@ -2,6 +2,23 @@
 #include <iostream>
 #include <fstream>
 
+void replace(std::ifstream& fileIn, std::ofstream& fileOut, const std::string& s1, const std::string& s2)
+{
+	std::string line;
+	unsigned long index = 0;
+
+	while (std::getline(fileIn, line))
+	{
+		while ((index = line.find(s1, index)) != std::string::npos)
+		{
+			line.erase(index, s1.size());
+			line.insert(index, s2);
+			index += s2.length();
+		}
+		fileOut << line << std::endl;
+	}
+}
+
 int main(int argc, char **argv)
 {
 	std::string filename, s1, s2;
@@ -13,8 +30,6 @@ int main(int argc, char **argv)
 	}
 
 	filename = argv[1];
-	s1 = argv[2];
-	s2 = argv[3];
 
 	std::ifstream fileIn(filename);
 	if (!fileIn.is_open())
@@ -29,16 +44,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	std::string line;
-	while (std::getline(fileIn, line))
-	{
-		unsigned long	index;
-		while ((index = line.find(s1, 0)) != std::string::npos)
-		{
-			line.erase(index, s1.size());
-			line.insert(index, s2);
-		}
-		fileOut << line << std::endl;
-	}
+	replace(fileIn, fileOut, argv[2], argv[3]);
 	return (0);
 }

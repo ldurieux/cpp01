@@ -3,7 +3,7 @@
 Zombie::Zombie(const std::string &name) :
 	_name(name)
 {
-
+	std::cout << _name << ": created" << std::endl;
 }
 
 Zombie::~Zombie()
@@ -11,7 +11,7 @@ Zombie::~Zombie()
 	std::cout << _name << ": destroyed" << std::endl;
 }
 
-void Zombie::announce()
+void Zombie::announce() const
 {
-	std::cout << _name << "o: BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

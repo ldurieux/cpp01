@@ -22,5 +22,9 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+	{
+		HumanB naked("naked");
+		naked.attack();
+	}
 	return 0;
 }

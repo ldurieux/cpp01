@@ -9,6 +9,7 @@ class HumanB
 {
 public:
 	HumanB(const std::string &name);
+	~HumanB();
 
 	void attack() const;
 
