@@ -5,10 +5,11 @@
 void replace(std::ifstream& fileIn, std::ofstream& fileOut, const std::string& s1, const std::string& s2)
 {
 	std::string line;
-	unsigned long index = 0;
+	unsigned long index;
 
 	while (std::getline(fileIn, line))
 	{
+		index = 0;
 		while ((index = line.find(s1, index)) != std::string::npos)
 		{
 			line.erase(index, s1.size());
